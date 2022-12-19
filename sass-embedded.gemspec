@@ -19,10 +19,10 @@ Gem::Specification.new do |spec| # rubocop:disable Gemspec/RequireMFA
 
   spec.files = Dir['lib/**/*.rb'] + ['LICENSE', 'README.md']
 
-  if ENV.key?('gem_platform')
+  if (platform = ENV.fetch('gem_platform', nil))
     spec.files += Dir['ext/sass/*.rb'] + Dir['ext/sass/sass_embedded/**/*']
-    spec.platform = ENV['gem_platform']
-    spec.required_rubygems_version = '>= 3.3.22' if ENV['gem_platform'].include?('-linux-')
+    spec.platform = platform
+    spec.required_rubygems_version = '>= 3.3.22' if platform.include?('-linux-')
   else
     spec.extensions = ['ext/sass/Rakefile']
     spec.files += Dir['ext/sass/*_pb.rb'] + [
@@ -32,7 +32,7 @@ Gem::Specification.new do |spec| # rubocop:disable Gemspec/RequireMFA
     ]
   end
 
-  spec.required_ruby_version = '>= 2.6.0'
+  spec.required_ruby_version = '>= 2.5.0'
 
   spec.add_runtime_dependency 'google-protobuf', '~> 3.21'
 
@@ -43,8 +43,8 @@ Gem::Specification.new do |spec| # rubocop:disable Gemspec/RequireMFA
   end
 
   spec.add_development_dependency 'rspec', '~> 3.12.0'
-  spec.add_development_dependency 'rubocop', '~> 1.40.0'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.15.0'
+  spec.add_development_dependency 'rubocop', '~> 1.28.2'
+  spec.add_development_dependency 'rubocop-performance', '~> 1.13.0'
   spec.add_development_dependency 'rubocop-rake', '~> 0.6.0'
-  spec.add_development_dependency 'rubocop-rspec', '~> 2.16.0'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.10.0'
 end

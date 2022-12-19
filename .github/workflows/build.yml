@@ -28,7 +28,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        ruby-version: ['2.6', '2.7', '3.0', 'ruby', 'jruby', 'truffleruby', 'truffleruby+graalvm']
+        ruby-version: ['2.5', '2.6', '2.7', '3.0', 'ruby', 'jruby', 'truffleruby', 'truffleruby+graalvm']
         exclude:
           - os: windows-latest
             ruby-version: truffleruby
@@ -59,7 +59,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        ruby-version: ['2.6', '2.7', '3.0', 'ruby', 'jruby', 'truffleruby', 'truffleruby+graalvm']
+        ruby-version: ['2.5', '2.6', '2.7', '3.0', 'ruby', 'jruby', 'truffleruby', 'truffleruby+graalvm']
         exclude:
           - os: windows-latest
             ruby-version: truffleruby
